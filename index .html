@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BusYatra - Online Bus Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-bus"></i>
+        <span>Bus<span>Yatra</span></span>
+    </div>
+
+    <nav class="nav-menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#search">Bus Search</a>
+        <a href="#timetable">Timetable</a>
+        <a href="#bookings">My Bookings</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <button class="login-btn" onclick="openLogin()">
+            <i class="fa-solid fa-user"></i>
+            Login
+        </button>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+</header>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <span class="hero-tag">
+                <i class="fa-solid fa-ticket"></i>
+                Easy & Fast Bus Booking
+            </span>
+
+            <h1>
+                Book Your Bus
+                <span>Ticket Easily</span>
+            </h1>
+
+            <p>
+                Find the best buses, compare fares and book your
+                journey online in just a few clicks.
+            </p>
+
+            <div class="hero-features">
+
+                <div>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Safe Booking</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Instant Confirmation</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-headset"></i>
+                    <span>24/7 Support</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <div class="bus-circle">
+                <i class="fa-solid fa-bus"></i>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BUS SEARCH ================= -->
+
+<section class="search-section" id="search">
+
+    <div class="search-container">
+
+        <div class="search-title">
+            <h2>Search & Book Your Bus</h2>
+            <p>Choose your route and find the best bus for your journey.</p>
+        </div>
+
+        <form id="busSearchForm" class="search-box">
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-location-dot"></i>
+                    From
+                </label>
+
+                <input
+                    type="text"
+                    id="fromCity"
+                    placeholder="Departure City"
+                    required
+                >
+
+            </div>
+
+
+            <div class="swap-icon" onclick="swapCities()">
+                <i class="fa-solid fa-right-left"></i>
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-location-dot"></i>
+                    To
+                </label>
+
+                <input
+                    type="text"
+                    id="toCity"
+                    placeholder="Arrival City"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-regular fa-calendar"></i>
+                    Journey Date
+                </label>
+
+                <input
+                    type="date"
+                    id="journeyDate"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-users"></i>
+                    Passengers
+                </label>
+
+                <select id="passengers">
+
+                    <option value="1">1 Passenger</option>
+                    <option value="2">2 Passengers</option>
+                    <option value="3">3 Passengers</option>
+                    <option value="4">4 Passengers</option>
+                    <option value="5">5 Passengers</option>
+
+                </select>
+
+            </div>
+
+
+            <button type="submit" class="search-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search Bus
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OFFERS ================= -->
+
+<section class="offers-section">
+
+    <div class="section-heading">
+
+        <span>Best Deals</span>
+
+        <h2>Offers & Discounts</h2>
+
+        <p>Save more on your next bus journey.</p>
+
+    </div>
+
+
+    <div class="offers-container">
+
+        <div class="offer-card">
+
+            <div class="offer-icon">
+                <i class="fa-solid fa-percent"></i>
+            </div>
+
+            <div>
+
+                <h3>First Booking Offer</h3>
+
+                <p>
+                    Get up to 20% off on your first bus booking.
+                </p>
+
+                <strong>BUSFIRST20</strong>
+
+            </div>
+
+            <button onclick="copyCoupon('BUSFIRST20')">
+                Copy
+            </button>
+
+        </div>
+
+
+        <div class="offer-card">
+
+            <div class="offer-icon">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <div>
+
+                <h3>Weekend Special</h3>
+
+                <p>
+                    Enjoy special discounts on weekend journeys.
+                </p>
+
+                <strong>WEEKEND15</strong>
+
+            </div>
+
+            <button onclick="copyCoupon('WEEKEND15')">
+                Copy
+            </button>
+
+        </div>
+
+
+        <div class="offer-card">
+
+            <div class="offer-icon">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+
+            <div>
+
+                <h3>Refer & Earn</h3>
+
+                <p>
+                    Refer your friends and earn travel rewards.
+                </p>
+
+                <strong>REFER100</strong>
+
+            </div>
+
+            <button onclick="copyCoupon('REFER100')">
+                Copy
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= POPULAR ROUTES ================= -->
+
+<section class="routes-section">
+
+    <div class="section-heading">
+
+        <span>Explore Routes</span>
+
+        <h2>Popular Bus Routes</h2>
+
+        <p>Book tickets for popular destinations.</p>
+
+    </div>
+
+
+    <div class="routes-container">
+
+        <div class="route-card">
+
+            <div class="route-icon">
+                <i class="fa-solid fa-road"></i>
+            </div>
+
+            <div class="route-info">
+
+                <h3>Mumbai → Pune</h3>
+
+                <p>Multiple buses available daily</p>
+
+                <strong>From £8</strong>
+
+            </div>
+
+            <button onclick="selectRoute('Mumbai','Pune')">
+                View Buses
+            </button>
+
+        </div>
+
+
+        <div class="route-card">
+
+            <div class="route-icon">
+                <i class="fa-solid fa-road"></i>
+            </div>
+
+            <div class="route-info">
+
+                <h3>Delhi → Jaipur</h3>
+
+                <p>Comfortable buses available</p>
+
+                <strong>From £10</strong>
+
+            </div>
+
+            <button onclick="selectRoute('Delhi','Jaipur')">
+                View Buses
+            </button>
+
+        </div>
+
+
+        <div class="route-card">
+
+            <div class="route-icon">
+                <i class="fa-solid fa-road"></i>
+            </div>
+
+            <div class="route-info">
+
+                <h3>Bangalore → Chennai</h3>
+
+                <p>Daily morning & night buses</p>
+
+                <strong>From £12</strong>
+
+            </div>
+
+            <button onclick="selectRoute('Bangalore','Chennai')">
+                View Buses
+            </button>
+
+        </div>
+
+
+        <div class="route-card">
+
+            <div class="route-icon">
+                <i class="fa-solid fa-road"></i>
+            </div>
+
+            <div class="route-info">
+
+                <h3>Hyderabad → Goa</h3>
+
+                <p>Premium sleeper buses</p>
+
+                <strong>From £15</strong>
+
+            </div>
+
+            <button onclick="selectRoute('Hyderabad','Goa')">
+                View Buses
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TIMETABLE ================= -->
+
+<section class="timetable-section" id="timetable">
+
+    <div class="section-heading">
+
+        <span>Bus Schedule</span>
+
+        <h2>Popular Timetables</h2>
+
+        <p>Check popular bus departure and arrival times.</p>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Bus Operator</th>
+                    <th>Route</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Fare</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        <strong>BusYatra Express</strong>
+                    </td>
+
+                    <td>Mumbai → Pune</td>
+
+                    <td>06:30 AM</td>
+
+                    <td>10:00 AM</td>
+
+                    <td>£8</td>
+
+                    <td>
+                        <button class="book-btn">
+                            Book Now
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        <strong>City Travels</strong>
+                    </td>
+
+                    <td>Delhi → Jaipur</td>
+
+                    <td>08:00 AM</td>
+
+                    <td>01:00 PM</td>
+
+                    <td>£10</td>
+
+                    <td>
+                        <button class="book-btn">
+                            Book Now
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        <strong>Royal Express</strong>
+                    </td>
+
+                    <td>Bangalore → Chennai</td>
+
+                    <td>09:30 PM</td>
+
+                    <td>05:00 AM</td>
+
+                    <td>£12</td>
+
+                    <td>
+                        <button class="book-btn">
+                            Book Now
+                        </button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-section">
+
+    <div class="section-heading">
+
+        <span>Our Benefits</span>
+
+        <h2>Why Choose BusYatra?</h2>
+
+        <p>Everything you need for a comfortable journey.</p>
+
+    </div>
+
+
+    <div class="why-container">
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-tags"></i>
+
+            <h3>Best Prices</h3>
+
+            <p>
+                Compare bus fares and find affordable tickets.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h3>Secure Booking</h3>
+
+            <p>
+                Your booking information is protected with secure technology.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <h3>Easy & Fast</h3>
+
+            <p>
+                Search and book your bus ticket in just a few clicks.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h3>24/7 Support</h3>
+
+            <p>
+                Our support team is always ready to help you.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="reviews-section">
+
+    <div class="section-heading">
+
+        <span>Customer Feedback</span>
+
+        <h2>What Our Customers Say</h2>
+
+    </div>
+
+
+    <div class="reviews-container">
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Very easy to search and book bus tickets.
+                The whole process was fast and simple."
+            </p>
+
+            <div class="review-user">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+                    <h4>Arman Khan</h4>
+                    <span>Verified Traveller</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "I found a great bus at a good price.
+                The booking experience was excellent."
+            </p>
+
+            <div class="review-user">
+
+                <div class="user-avatar">
+                    R
+                </div>
+
+                <div>
+                    <h4>Rahul Sharma</h4>
+                    <span>Verified Traveller</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The timetable information was very useful.
+                I will definitely use BusYatra again."
+            </p>
+
+            <div class="review-user">
+
+                <div class="user-avatar">
+                    S
+                </div>
+
+                <div>
+                    <h4>Sameer Patel</h4>
+                    <span>Verified Traveller</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= APP PROMOTION ================= -->
+
+<section class="app-section">
+
+    <div class="app-content">
+
+        <div class="app-text">
+
+            <span>Travel On The Go</span>
+
+            <h2>
+                Book Your Bus Tickets
+                From Anywhere
+            </h2>
+
+            <p>
+                Download the BusYatra app and enjoy faster booking,
+                exclusive offers and easy ticket management.
+            </p>
+
+            <div class="app-buttons">
+
+                <button>
+                    <i class="fa-brands fa-google-play"></i>
+                    Google Play
+                </button>
+
+                <button>
+                    <i class="fa-brands fa-apple"></i>
+                    App Store
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="phone-mockup">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            <h3>BusYatra</h3>
+
+            <p>Book. Travel. Enjoy.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact-section">
+
+    <div class="section-heading">
+
+        <span>Need Help?</span>
+
+        <h2>Contact & Support</h2>
+
+        <p>Our support team is here to help you.</p>
+
+    </div>
+
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+
+            <i class="fa-solid fa-phone"></i>
+
+            <h3>Call Us</h3>
+
+            <p>+91 1800 123 4567</p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <h3>Email Us</h3>
+
+            <p>support@busyatra.com</p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <i class="fa-solid fa-comments"></i>
+
+            <h3>Live Chat</h3>
+
+            <p>Chat with our support team</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box footer-about">
+
+            <div class="footer-logo">
+                <i class="fa-solid fa-bus"></i>
+                BusYatra
+            </div>
+
+            <p>
+                Book bus tickets online with ease.
+                Compare prices, check timetables
+                and travel comfortably.
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#search">Bus Search</a>
+            <a href="#timetable">Timetable</a>
+            <a href="#bookings">My Bookings</a>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>Support</h3>
+
+            <a href="#">Help Center</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Cancellation</a>
+            <a href="#">Refund Policy</a>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>Company</h3>
+
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 BusYatra. All Rights Reserved.
+        </p>
+
+        <p>
+            Made for easy and comfortable travel.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="login-modal" id="loginModal">
+
+    <div class="login-box">
+
+        <button class="close-login" onclick="closeLogin()">
+            ×
+        </button>
+
+        <div class="login-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <h2>Welcome Back</h2>
+
+        <p>Login to manage your bookings.</p>
+
+        <input
+            type="email"
+            placeholder="Enter your email"
+        >
+
+        <input
+            type="password"
+            placeholder="Enter your password"
+        >
+
+        <button class="login-submit">
+            Login
+        </button>
+
+        <p class="signup-text">
+            Don't have an account?
+            <a href="#">Create Account</a>
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

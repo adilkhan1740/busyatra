@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payment - BusYatra</title>
+
+    <link
+        rel="stylesheet"
+        href="payment.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <i class="fa-solid fa-bus"></i>
+
+        <span>
+            Bus<span>Yatra</span>
+        </span>
+
+    </a>
+
+
+    <nav class="nav-menu">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="bus-search.html">
+            Bus Search
+        </a>
+
+        <a href="#">
+            Timetable
+        </a>
+
+        <a href="#">
+            My Bookings
+        </a>
+
+    </nav>
+
+
+    <button class="login-btn">
+
+        <i class="fa-solid fa-user"></i>
+
+        Login
+
+    </button>
+
+</header>
+
+
+
+<!-- ================= PAGE HEADER ================= -->
+
+<section class="page-header">
+
+    <div>
+
+        <span>
+
+            <i class="fa-solid fa-credit-card"></i>
+
+            Step 3 of 3
+
+        </span>
+
+
+        <h1>
+            Complete Your Payment
+        </h1>
+
+
+        <p>
+            Choose your preferred payment method and confirm your booking.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="payment-page">
+
+
+    <!-- ================= PAYMENT SECTION ================= -->
+
+    <section class="payment-section">
+
+
+        <div class="payment-heading">
+
+            <h2>
+                Payment Options
+            </h2>
+
+            <p>
+                All transactions are secure and encrypted.
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= PAYMENT METHODS ================= -->
+
+        <div class="payment-methods">
+
+
+            <!-- UPI -->
+
+            <button
+                class="payment-method active"
+                data-method="upi"
+            >
+
+                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                <span>
+                    UPI
+                </span>
+
+            </button>
+
+
+
+            <!-- CARD -->
+
+            <button
+                class="payment-method"
+                data-method="card"
+            >
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                <span>
+                    Card
+                </span>
+
+            </button>
+
+
+
+            <!-- NET BANKING -->
+
+            <button
+                class="payment-method"
+                data-method="netbanking"
+            >
+
+                <i class="fa-solid fa-building-columns"></i>
+
+                <span>
+                    Net Banking
+                </span>
+
+            </button>
+
+
+
+            <!-- WALLET -->
+
+            <button
+                class="payment-method"
+                data-method="wallet"
+            >
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <span>
+                    Wallet
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ================= UPI FORM ================= -->
+
+        <div
+            class="payment-form active-form"
+            id="upiForm"
+        >
+
+            <h3>
+                Pay with UPI
+            </h3>
+
+            <p>
+                Enter your UPI ID to continue.
+            </p>
+
+
+            <div class="input-group">
+
+                <label>
+                    UPI ID
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-mobile-screen"></i>
+
+                    <input
+                        type="text"
+                        id="upiId"
+                        placeholder="example@upi"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="upi-apps">
+
+                <button>
+                    <i class="fa-solid fa-qrcode"></i>
+                    Scan QR
+                </button>
+
+                <button>
+                    Google Pay
+                </button>
+
+                <button>
+                    PhonePe
+                </button>
+
+                <button>
+                    Paytm
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CARD FORM ================= -->
+
+        <div
+            class="payment-form"
+            id="cardForm"
+        >
+
+            <h3>
+                Card Details
+            </h3>
+
+            <p>
+                Enter your debit or credit card details.
+            </p>
+
+
+            <div class="input-group">
+
+                <label>
+                    Card Number
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        maxlength="19"
+                        placeholder="1234 5678 9012 3456"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="two-column">
+
+
+                <div class="input-group">
+
+                    <label>
+                        Expiry Date
+                    </label>
+
+                    <div class="input-box">
+
+                        <input
+                            type="text"
+                            id="expiry"
+                            maxlength="5"
+                            placeholder="MM/YY"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        CVV
+                    </label>
+
+                    <div class="input-box">
+
+                        <input
+                            type="password"
+                            id="cvv"
+                            maxlength="3"
+                            placeholder="•••"
+                        >
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Card Holder Name
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="cardHolder"
+                        placeholder="Enter card holder name"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= NET BANKING ================= -->
+
+        <div
+            class="payment-form"
+            id="netbankingForm"
+        >
+
+            <h3>
+                Net Banking
+            </h3>
+
+            <p>
+                Select your bank to continue.
+            </p>
+
+
+            <div class="input-group">
+
+                <label>
+                    Select Bank
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                    <select id="bank">
+
+                        <option value="">
+                            Select Your Bank
+                        </option>
+
+                        <option value="SBI">
+                            State Bank of India
+                        </option>
+
+                        <option value="HDFC">
+                            HDFC Bank
+                        </option>
+
+                        <option value="ICICI">
+                            ICICI Bank
+                        </option>
+
+                        <option value="Axis">
+                            Axis Bank
+                        </option>
+
+                        <option value="Kotak">
+                            Kotak Mahindra Bank
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= WALLET ================= -->
+
+        <div
+            class="payment-form"
+            id="walletForm"
+        >
+
+            <h3>
+                Select Wallet
+            </h3>
+
+            <p>
+                Choose your preferred wallet.
+            </p>
+
+
+            <div class="wallet-options">
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="wallet"
+                        value="Paytm"
+                    >
+
+                    <span>
+                        Paytm
+                    </span>
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="wallet"
+                        value="Amazon Pay"
+                    >
+
+                    <span>
+                        Amazon Pay
+                    </span>
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="wallet"
+                        value="Mobikwik"
+                    >
+
+                    <span>
+                        Mobikwik
+                    </span>
+
+                </label>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= COUPON ================= -->
+
+        <div class="coupon-section">
+
+            <h3>
+                Have a Coupon?
+            </h3>
+
+
+            <div class="coupon-box">
+
+                <input
+                    type="text"
+                    id="couponCode"
+                    placeholder="Enter coupon code"
+                >
+
+
+                <button
+                    type="button"
+                    id="applyCoupon"
+                >
+                    Apply
+                </button>
+
+            </div>
+
+
+            <p
+                class="coupon-message"
+                id="couponMessage"
+            ></p>
+
+
+            <div class="coupon-hint">
+
+                Try:
+                <strong>
+                    BUS50
+                </strong>
+
+                for a demo discount.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= SECURE ================= -->
+
+        <div class="secure-payment">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <div>
+
+                <strong>
+                    Secure Payment
+                </strong>
+
+                <p>
+                    Your payment information is protected with secure encryption.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= ORDER SUMMARY ================= -->
+
+    <aside class="order-summary">
+
+
+        <h2>
+            Booking Summary
+        </h2>
+
+
+        <div class="bus-summary">
+
+            <div class="bus-icon">
+
+                <i class="fa-solid fa-bus"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3 id="busName">
+                    BusYatra Express
+                </h3>
+
+                <p>
+                    AC Seater
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="route-summary">
+
+
+            <div>
+
+                <span>
+                    From
+                </span>
+
+                <strong>
+                    Mumbai
+                </strong>
+
+            </div>
+
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+
+            <div>
+
+                <span>
+                    To
+                </span>
+
+                <strong>
+                    Pune
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="summary-item">
+
+            <span>
+                Journey Date
+            </span>
+
+            <strong>
+                25 July 2026
+            </strong>
+
+        </div>
+
+
+
+        <div class="summary-item">
+
+            <span>
+                Selected Seats
+            </span>
+
+            <strong id="selectedSeats">
+                A1
+            </strong>
+
+        </div>
+
+
+
+        <div class="fare-breakdown">
+
+
+            <div>
+
+                <span>
+                    Seat Fare
+                </span>
+
+                <strong id="seatFare">
+                    ₹550
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Service Fee
+                </span>
+
+                <strong id="serviceFee">
+                    ₹20
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    GST
+                </span>
+
+                <strong id="gst">
+                    ₹29
+                </strong>
+
+            </div>
+
+
+            <div
+                class="discount-row"
+                id="discountRow"
+            >
+
+                <span>
+                    Discount
+                </span>
+
+                <strong id="discount">
+                    -₹0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="total-row">
+
+            <span>
+                Total Payable
+            </span>
+
+            <strong id="totalAmount">
+                ₹599
+            </strong>
+
+        </div>
+
+
+
+        <button
+            class="pay-btn"
+            id="payBtn"
+        >
+
+            <span>
+                Pay ₹599
+            </span>
+
+            <i class="fa-solid fa-lock"></i>
+
+        </button>
+
+
+        <p class="payment-note">
+
+            By clicking Pay, you agree to our
+            Terms & Conditions.
+
+        </p>
+
+
+    </aside>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+
+                <i class="fa-solid fa-bus"></i>
+
+                BusYatra
+
+            </div>
+
+            <p>
+                Your trusted platform for easy,
+                safe and comfortable bus booking.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="bus-search.html">
+                Bus Search
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Support
+            </h3>
+
+            <a href="#">
+                Help Center
+            </a>
+
+            <a href="#">
+                Cancellation
+            </a>
+
+            <a href="#">
+                Refund Policy
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Legal
+            </h3>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 BusYatra. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script src="payment.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,657 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #1d2939;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    min-height: 75px;
+    padding: 15px 7%;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo i {
+    color: #e63946;
+}
+
+.logo span span {
+    color: #e63946;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #475467;
+    font-weight: 600;
+}
+
+.nav-menu a:hover {
+    color: #e63946;
+}
+
+.login-btn {
+    padding: 11px 20px;
+
+    border: 1px solid #e63946;
+    border-radius: 8px;
+
+    background: white;
+    color: #e63946;
+
+    cursor: pointer;
+}
+
+
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+    padding: 45px 7%;
+
+    background: #fff0f1;
+}
+
+.page-header span {
+    color: #e63946;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.page-header h1 {
+    font-size: 35px;
+    margin: 10px 0;
+}
+
+.page-header p {
+    color: #667085;
+}
+
+
+/* ================= BUS DETAILS ================= */
+
+.bus-details {
+    max-width: 1200px;
+
+    margin: 30px auto;
+
+    padding: 22px 25px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.bus-company {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bus-logo {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 12px;
+
+    background: #ffe1e4;
+    color: #e63946;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+}
+
+.bus-company h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.bus-company p {
+    color: #667085;
+}
+
+.journey-route {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.journey-route div,
+.journey-date div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.journey-route span,
+.journey-date span {
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+.journey-route i {
+    color: #e63946;
+}
+
+.journey-date {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.journey-date > i {
+    color: #e63946;
+    font-size: 25px;
+}
+
+
+/* ================= MAIN ================= */
+
+.seat-page {
+    max-width: 1200px;
+
+    margin: 30px auto 70px;
+
+    padding: 0 20px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 350px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* ================= SEAT SECTION ================= */
+
+.seat-section {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #eaecf0;
+}
+
+.section-title h2 {
+    margin-bottom: 7px;
+}
+
+.section-title p {
+    color: #667085;
+}
+
+.seat-legend {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.seat-legend div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 12px;
+    color: #667085;
+}
+
+.legend {
+    width: 15px;
+    height: 15px;
+
+    border-radius: 4px;
+}
+
+.legend.available {
+    border: 1px solid #d0d5dd;
+    background: white;
+}
+
+.legend.selected {
+    background: #e63946;
+}
+
+.legend.booked {
+    background: #d0d5dd;
+}
+
+
+/* ================= BUS LAYOUT ================= */
+
+.bus-layout {
+    max-width: 370px;
+
+    margin: 35px auto;
+
+    padding: 20px;
+
+    border: 2px solid #eaecf0;
+
+    border-radius: 20px;
+
+    background: #fafafa;
+}
+
+.driver-area {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 2px dashed #d0d5dd;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+
+    color: #667085;
+}
+
+.driver-area i {
+    color: #344054;
+    font-size: 25px;
+}
+
+.seat-grid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.seat-row {
+    display: grid;
+
+    grid-template-columns:
+        55px
+        55px
+        1fr
+        55px;
+
+    gap: 12px;
+
+    align-items: center;
+}
+
+.aisle {
+    width: 100%;
+}
+
+.seat {
+    width: 55px;
+    height: 45px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.available-seat {
+    border: 1px solid #d0d5dd;
+
+    background: white;
+
+    color: #475467;
+}
+
+.available-seat:hover {
+    border-color: #e63946;
+
+    color: #e63946;
+
+    transform: translateY(-2px);
+}
+
+.selected-seat {
+    background: #e63946;
+
+    color: white;
+
+    border: 1px solid #e63946;
+
+    box-shadow:
+        0 5px 12px
+        rgba(230,57,70,.3);
+}
+
+.booked-seat {
+    background: #d0d5dd;
+
+    color: #667085;
+
+    border: none;
+
+    cursor: not-allowed;
+
+    opacity: .7;
+}
+
+
+/* ================= BOOKING SUMMARY ================= */
+
+.booking-summary {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+
+    position: sticky;
+
+    top: 100px;
+}
+
+.booking-summary h2 {
+    margin-bottom: 25px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eaecf0;
+}
+
+.summary-line span {
+    color: #667085;
+}
+
+.summary-line strong {
+    text-align: right;
+}
+
+.price-box {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px 0 10px;
+
+    color: #667085;
+}
+
+.price-box strong {
+    color: #1d2939;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px 0 25px;
+
+    font-size: 20px;
+}
+
+.total-box strong {
+    color: #e63946;
+}
+
+.continue-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #e63946;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.continue-btn:not(:disabled):hover {
+    background: #c92f3b;
+}
+
+.continue-btn:disabled {
+    background: #d0d5dd;
+
+    cursor: not-allowed;
+}
+
+.secure-text {
+    text-align: center;
+
+    color: #667085;
+
+    font-size: 12px;
+
+    margin-top: 18px;
+}
+
+.secure-text i {
+    color: #16803c;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    padding: 50px 7% 0;
+
+    background: #101828;
+
+    color: white;
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 40px;
+}
+
+.footer-container > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer-logo {
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+.footer-logo i {
+    color: #e63946;
+}
+
+.footer-about p {
+    max-width: 350px;
+
+    color: #98a2b3;
+
+    line-height: 1.6;
+}
+
+.footer-container a {
+    color: #98a2b3;
+}
+
+.footer-container a:hover {
+    color: #e63946;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+
+    padding: 20px;
+
+    border-top: 1px solid #344054;
+
+    text-align: center;
+
+    color: #98a2b3;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 900px) {
+
+    .bus-details {
+        margin: 20px;
+        flex-wrap: wrap;
+    }
+
+    .seat-page {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-summary {
+        position: static;
+    }
+
+}
+
+
+@media(max-width: 600px) {
+
+    .nav-menu {
+        display: none;
+    }
+
+    .page-header {
+        padding: 35px 5%;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .bus-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .seat-section {
+        padding: 20px 10px;
+    }
+
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .seat-legend {
+        gap: 10px;
+    }
+
+    .bus-layout {
+        padding: 15px 8px;
+    }
+
+    .seat-row {
+        grid-template-columns:
+            50px
+            50px
+            1fr
+            50px;
+
+        gap: 8px;
+    }
+
+    .seat {
+        width: 50px;
+        height: 42px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+}

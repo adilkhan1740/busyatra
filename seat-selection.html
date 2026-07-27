@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Select Seats - BusYatra</title>
+
+    <link
+        rel="stylesheet"
+        href="seat-selection.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <i class="fa-solid fa-bus"></i>
+
+        <span>
+            Bus<span>Yatra</span>
+        </span>
+
+    </a>
+
+
+    <nav class="nav-menu">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="bus-search.html">
+            Bus Search
+        </a>
+
+        <a href="#">
+            Timetable
+        </a>
+
+        <a href="#">
+            My Bookings
+        </a>
+
+    </nav>
+
+
+    <button class="login-btn">
+
+        <i class="fa-solid fa-user"></i>
+
+        Login
+
+    </button>
+
+</header>
+
+
+
+<!-- ================= PAGE HEADER ================= -->
+
+<section class="page-header">
+
+    <div>
+
+        <span>
+            <i class="fa-solid fa-chair"></i>
+            Step 1 of 3
+        </span>
+
+        <h1>
+            Select Your Seats
+        </h1>
+
+        <p>
+            Choose your preferred seats for the journey.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= BUS DETAILS ================= -->
+
+<section class="bus-details">
+
+    <div class="bus-company">
+
+        <div class="bus-logo">
+
+            <i class="fa-solid fa-bus"></i>
+
+        </div>
+
+
+        <div>
+
+            <h2 id="busName">
+                BusYatra Express
+            </h2>
+
+            <p>
+                AC Seater
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="journey-route">
+
+        <div>
+
+            <span>
+                From
+            </span>
+
+            <strong id="fromCity">
+                Mumbai
+            </strong>
+
+        </div>
+
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+
+        <div>
+
+            <span>
+                To
+            </span>
+
+            <strong id="toCity">
+                Pune
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="journey-date">
+
+        <i class="fa-regular fa-calendar"></i>
+
+        <div>
+
+            <span>
+                Journey Date
+            </span>
+
+            <strong id="journeyDate">
+                25 July 2026
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="seat-page">
+
+
+    <!-- ================= SEAT AREA ================= -->
+
+    <section class="seat-section">
+
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    Choose Your Seats
+                </h2>
+
+                <p>
+                    Select maximum
+                    <strong id="maxSeats">
+                        1
+                    </strong>
+                    seat(s)
+                </p>
+
+            </div>
+
+
+            <div class="seat-legend">
+
+                <div>
+
+                    <span class="legend available"></span>
+
+                    Available
+
+                </div>
+
+
+                <div>
+
+                    <span class="legend selected"></span>
+
+                    Selected
+
+                </div>
+
+
+                <div>
+
+                    <span class="legend booked"></span>
+
+                    Booked
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= BUS ================= -->
+
+        <div class="bus-layout">
+
+
+            <div class="driver-area">
+
+                <i class="fa-solid fa-steering-wheel"></i>
+
+                <span>
+                    Driver
+                </span>
+
+            </div>
+
+
+
+            <div class="seat-grid" id="seatGrid">
+
+
+                <!-- ROW 1 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="A1"
+                    >
+                        A1
+                    </button>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="A2"
+                    >
+                        A2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat booked-seat"
+                        disabled
+                    >
+                        A3
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROW 2 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="B1"
+                    >
+                        B1
+                    </button>
+
+                    <button
+                        class="seat booked-seat"
+                        disabled
+                    >
+                        B2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="B3"
+                    >
+                        B3
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROW 3 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="C1"
+                    >
+                        C1
+                    </button>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="C2"
+                    >
+                        C2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="C3"
+                    >
+                        C3
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROW 4 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat booked-seat"
+                        disabled
+                    >
+                        D1
+                    </button>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="D2"
+                    >
+                        D2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="D3"
+                    >
+                        D3
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROW 5 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="E1"
+                    >
+                        E1
+                    </button>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="E2"
+                    >
+                        E2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="E3"
+                    >
+                        E3
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROW 6 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="F1"
+                    >
+                        F1
+                    </button>
+
+                    <button
+                        class="seat booked-seat"
+                        disabled
+                    >
+                        F2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="F3"
+                    >
+                        F3
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROW 7 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="G1"
+                    >
+                        G1
+                    </button>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="G2"
+                    >
+                        G2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="G3"
+                    >
+                        G3
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROW 8 -->
+
+                <div class="seat-row">
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="H1"
+                    >
+                        H1
+                    </button>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="H2"
+                    >
+                        H2
+                    </button>
+
+                    <span class="aisle"></span>
+
+                    <button
+                        class="seat available-seat"
+                        data-seat="H3"
+                    >
+                        H3
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= BOOKING SUMMARY ================= -->
+
+    <aside class="booking-summary">
+
+
+        <h2>
+            Booking Summary
+        </h2>
+
+
+        <div class="summary-line">
+
+            <span>
+                Bus
+            </span>
+
+            <strong id="summaryBus">
+                BusYatra Express
+            </strong>
+
+        </div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Route
+            </span>
+
+            <strong>
+                Mumbai → Pune
+            </strong>
+
+        </div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Seats
+            </span>
+
+            <strong id="selectedSeatsText">
+                Not Selected
+            </strong>
+
+        </div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Seat Count
+            </span>
+
+            <strong id="seatCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="price-box">
+
+            <span>
+                Fare per Seat
+            </span>
+
+            <strong id="farePerSeat">
+                ₹550
+            </strong>
+
+        </div>
+
+
+        <div class="total-box">
+
+            <span>
+                Total Fare
+            </span>
+
+            <strong id="totalFare">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="continue-btn"
+            id="continueBtn"
+            disabled
+        >
+
+            Continue Booking
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+
+        <p class="secure-text">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Secure & Safe Booking
+
+        </p>
+
+    </aside>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+
+                <i class="fa-solid fa-bus"></i>
+
+                BusYatra
+
+            </div>
+
+            <p>
+
+                Your trusted platform for easy,
+                safe and comfortable bus booking.
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="bus-search.html">
+                Bus Search
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Support
+            </h3>
+
+            <a href="#">
+                Help Center
+            </a>
+
+            <a href="#">
+                Cancellation
+            </a>
+
+            <a href="#">
+                Refund Policy
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Legal
+            </h3>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 BusYatra. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script src="seat-selection.js"></script>
+
+</body>
+
+</html>
+

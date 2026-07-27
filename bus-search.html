@@ -1,0 +1,1236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Search Buses - BusYatra</title>
+
+    <link rel="stylesheet" href="bus-search.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <i class="fa-solid fa-bus"></i>
+
+        <span>Bus<span>Yatra</span></span>
+
+    </a>
+
+
+    <nav class="nav-menu">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="bus-search.html" class="active">
+            Bus Search
+        </a>
+
+        <a href="#">
+            Timetable
+        </a>
+
+        <a href="#">
+            My Bookings
+        </a>
+
+    </nav>
+
+
+    <button class="login-btn">
+
+        <i class="fa-solid fa-user"></i>
+
+        Login
+
+    </button>
+
+</header>
+
+
+
+<!-- ================= SEARCH SUMMARY ================= -->
+
+<section class="search-summary">
+
+    <div class="summary-container">
+
+
+        <div class="route-summary">
+
+            <div class="city">
+
+                <span>From</span>
+
+                <strong id="fromCity">
+                    Mumbai
+                </strong>
+
+            </div>
+
+
+            <div class="route-arrow">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+
+            <div class="city">
+
+                <span>To</span>
+
+                <strong id="toCity">
+                    Pune
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="journey-info">
+
+            <div>
+
+                <i class="fa-regular fa-calendar"></i>
+
+                <span id="journeyDate">
+                    25 July 2026
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-users"></i>
+
+                <span id="passengerCount">
+                    1 Passenger
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="modify-btn"
+            onclick="modifySearch()"
+        >
+
+            <i class="fa-solid fa-pen"></i>
+
+            Modify Search
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="main-container">
+
+
+    <!-- ================= FILTER SIDEBAR ================= -->
+
+    <aside class="filter-sidebar">
+
+
+        <div class="filter-header">
+
+            <h3>
+
+                <i class="fa-solid fa-filter"></i>
+
+                Filters
+
+            </h3>
+
+
+            <button onclick="clearFilters()">
+
+                Clear All
+
+            </button>
+
+        </div>
+
+
+
+        <!-- BUS TYPE -->
+
+        <div class="filter-group">
+
+            <h4>Bus Type</h4>
+
+
+            <label class="checkbox-item">
+
+                <input
+                    type="checkbox"
+                    class="bus-type-filter"
+                    value="AC"
+                >
+
+                <span>AC Bus</span>
+
+            </label>
+
+
+            <label class="checkbox-item">
+
+                <input
+                    type="checkbox"
+                    class="bus-type-filter"
+                    value="Non-AC"
+                >
+
+                <span>Non-AC Bus</span>
+
+            </label>
+
+
+            <label class="checkbox-item">
+
+                <input
+                    type="checkbox"
+                    class="bus-type-filter"
+                    value="Sleeper"
+                >
+
+                <span>Sleeper</span>
+
+            </label>
+
+
+            <label class="checkbox-item">
+
+                <input
+                    type="checkbox"
+                    class="bus-type-filter"
+                    value="Seater"
+                >
+
+                <span>Seater</span>
+
+            </label>
+
+        </div>
+
+
+
+        <!-- DEPARTURE -->
+
+        <div class="filter-group">
+
+            <h4>Departure Time</h4>
+
+
+            <label class="radio-item">
+
+                <input
+                    type="radio"
+                    name="departure"
+                    value="morning"
+                >
+
+                <span>Morning</span>
+
+            </label>
+
+
+            <label class="radio-item">
+
+                <input
+                    type="radio"
+                    name="departure"
+                    value="afternoon"
+                >
+
+                <span>Afternoon</span>
+
+            </label>
+
+
+            <label class="radio-item">
+
+                <input
+                    type="radio"
+                    name="departure"
+                    value="night"
+                >
+
+                <span>Night</span>
+
+            </label>
+
+        </div>
+
+
+
+        <!-- PRICE -->
+
+        <div class="filter-group">
+
+            <h4>Maximum Fare</h4>
+
+
+            <input
+                type="range"
+                id="priceRange"
+                min="200"
+                max="2000"
+                value="2000"
+            >
+
+
+            <div class="price-range">
+
+                <span>₹200</span>
+
+                <strong id="priceValue">
+                    ₹2000
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AMENITIES -->
+
+        <div class="filter-group">
+
+            <h4>Amenities</h4>
+
+
+            <label class="checkbox-item">
+
+                <input type="checkbox">
+
+                <span>Wi-Fi</span>
+
+            </label>
+
+
+            <label class="checkbox-item">
+
+                <input type="checkbox">
+
+                <span>Charging Point</span>
+
+            </label>
+
+
+            <label class="checkbox-item">
+
+                <input type="checkbox">
+
+                <span>Water Bottle</span>
+
+            </label>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ================= BUS RESULTS ================= -->
+
+    <section class="results-section">
+
+
+        <div class="results-header">
+
+
+            <div>
+
+                <h2>
+
+                    Available Buses
+
+                </h2>
+
+
+                <p>
+
+                    <span id="busCount">
+                        6
+                    </span>
+
+                    buses found for your journey
+
+                </p>
+
+            </div>
+
+
+
+            <div class="sort-box">
+
+                <label>
+                    Sort By
+                </label>
+
+
+                <select id="sortSelect">
+
+                    <option value="recommended">
+                        Recommended
+                    </option>
+
+                    <option value="price-low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="price-high">
+                        Price: High to Low
+                    </option>
+
+                    <option value="departure">
+                        Earliest Departure
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- BUS LIST -->
+
+        <div
+            class="bus-list"
+            id="busList"
+        >
+
+
+            <!-- BUS CARD 1 -->
+
+            <article
+                class="bus-card"
+                data-type="AC Seater"
+                data-price="550"
+                data-departure="morning"
+            >
+
+                <div class="bus-main">
+
+
+                    <div class="bus-company">
+
+                        <div class="bus-logo">
+
+                            <i class="fa-solid fa-bus"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                BusYatra Express
+                            </h3>
+
+                            <p>
+                                AC Seater
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="time-info">
+
+
+                        <div>
+
+                            <strong>
+                                06:30 AM
+                            </strong>
+
+                            <span>
+                                Mumbai
+                            </span>
+
+                        </div>
+
+
+                        <div class="duration">
+
+                            <span>
+                                3h 30m
+                            </span>
+
+                            <div class="line"></div>
+
+                            <span>
+                                Direct
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                10:00 AM
+                            </strong>
+
+                            <span>
+                                Pune
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="bus-rating">
+
+                        <span>
+                            ⭐ 4.7
+                        </span>
+
+                        <small>
+                            245 Reviews
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="bus-bottom">
+
+
+                    <div class="amenities">
+
+                        <span>
+                            <i class="fa-solid fa-wifi"></i>
+                            Wi-Fi
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-plug"></i>
+                            Charging
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-bottle-water"></i>
+                            Water
+                        </span>
+
+                    </div>
+
+
+                    <div class="seat-info">
+
+                        <strong>
+                            18 Seats
+                        </strong>
+
+                        <span>
+                            available
+                        </span>
+
+                    </div>
+
+
+                    <div class="price">
+
+                        <span>
+                            Starting from
+                        </span>
+
+                        <strong>
+                            ₹550
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="select-btn"
+                        onclick="selectBus('BusYatra Express', 550)"
+                    >
+
+                        Select Seats
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </div>
+
+            </article>
+
+
+
+            <!-- BUS CARD 2 -->
+
+            <article
+                class="bus-card"
+                data-type="AC Sleeper"
+                data-price="850"
+                data-departure="night"
+            >
+
+                <div class="bus-main">
+
+
+                    <div class="bus-company">
+
+                        <div class="bus-logo">
+
+                            <i class="fa-solid fa-bus"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Royal Travels
+                            </h3>
+
+                            <p>
+                                AC Sleeper
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="time-info">
+
+
+                        <div>
+
+                            <strong>
+                                09:00 PM
+                            </strong>
+
+                            <span>
+                                Mumbai
+                            </span>
+
+                        </div>
+
+
+                        <div class="duration">
+
+                            <span>
+                                4h 00m
+                            </span>
+
+                            <div class="line"></div>
+
+                            <span>
+                                Direct
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                01:00 AM
+                            </strong>
+
+                            <span>
+                                Pune
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="bus-rating">
+
+                        <span>
+                            ⭐ 4.9
+                        </span>
+
+                        <small>
+                            520 Reviews
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="bus-bottom">
+
+
+                    <div class="amenities">
+
+                        <span>
+                            <i class="fa-solid fa-wifi"></i>
+                            Wi-Fi
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-plug"></i>
+                            Charging
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-bed"></i>
+                            Sleeper
+                        </span>
+
+                    </div>
+
+
+                    <div class="seat-info">
+
+                        <strong>
+                            12 Seats
+                        </strong>
+
+                        <span>
+                            available
+                        </span>
+
+                    </div>
+
+
+                    <div class="price">
+
+                        <span>
+                            Starting from
+                        </span>
+
+                        <strong>
+                            ₹850
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="select-btn"
+                        onclick="selectBus('Royal Travels', 850)"
+                    >
+
+                        Select Seats
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </div>
+
+            </article>
+
+
+
+            <!-- BUS CARD 3 -->
+
+            <article
+                class="bus-card"
+                data-type="Non-AC Seater"
+                data-price="350"
+                data-departure="afternoon"
+            >
+
+                <div class="bus-main">
+
+
+                    <div class="bus-company">
+
+                        <div class="bus-logo">
+
+                            <i class="fa-solid fa-bus"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                City Travels
+                            </h3>
+
+                            <p>
+                                Non-AC Seater
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="time-info">
+
+
+                        <div>
+
+                            <strong>
+                                02:00 PM
+                            </strong>
+
+                            <span>
+                                Mumbai
+                            </span>
+
+                        </div>
+
+
+                        <div class="duration">
+
+                            <span>
+                                4h 30m
+                            </span>
+
+                            <div class="line"></div>
+
+                            <span>
+                                Direct
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                06:30 PM
+                            </strong>
+
+                            <span>
+                                Pune
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="bus-rating">
+
+                        <span>
+                            ⭐ 4.3
+                        </span>
+
+                        <small>
+                            110 Reviews
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="bus-bottom">
+
+
+                    <div class="amenities">
+
+                        <span>
+                            <i class="fa-solid fa-plug"></i>
+                            Charging
+                        </span>
+
+                    </div>
+
+
+                    <div class="seat-info">
+
+                        <strong>
+                            25 Seats
+                        </strong>
+
+                        <span>
+                            available
+                        </span>
+
+                    </div>
+
+
+                    <div class="price">
+
+                        <span>
+                            Starting from
+                        </span>
+
+                        <strong>
+                            ₹350
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="select-btn"
+                        onclick="selectBus('City Travels', 350)"
+                    >
+
+                        Select Seats
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </div>
+
+            </article>
+
+
+
+            <!-- BUS CARD 4 -->
+
+            <article
+                class="bus-card"
+                data-type="AC Seater"
+                data-price="700"
+                data-departure="morning"
+            >
+
+                <div class="bus-main">
+
+
+                    <div class="bus-company">
+
+                        <div class="bus-logo">
+
+                            <i class="fa-solid fa-bus"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                GreenLine Bus
+                            </h3>
+
+                            <p>
+                                AC Seater
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="time-info">
+
+
+                        <div>
+
+                            <strong>
+                                08:00 AM
+                            </strong>
+
+                            <span>
+                                Mumbai
+                            </span>
+
+                        </div>
+
+
+                        <div class="duration">
+
+                            <span>
+                                3h 45m
+                            </span>
+
+                            <div class="line"></div>
+
+                            <span>
+                                Direct
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                11:45 AM
+                            </strong>
+
+                            <span>
+                                Pune
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="bus-rating">
+
+                        <span>
+                            ⭐ 4.6
+                        </span>
+
+                        <small>
+                            190 Reviews
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="bus-bottom">
+
+
+                    <div class="amenities">
+
+                        <span>
+                            <i class="fa-solid fa-wifi"></i>
+                            Wi-Fi
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-plug"></i>
+                            Charging
+                        </span>
+
+                    </div>
+
+
+                    <div class="seat-info">
+
+                        <strong>
+                            20 Seats
+                        </strong>
+
+                        <span>
+                            available
+                        </span>
+
+                    </div>
+
+
+                    <div class="price">
+
+                        <span>
+                            Starting from
+                        </span>
+
+                        <strong>
+                            ₹700
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="select-btn"
+                        onclick="selectBus('GreenLine Bus', 700)"
+                    >
+
+                        Select Seats
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- NO RESULTS -->
+
+        <div
+            class="no-results"
+            id="noResults"
+        >
+
+            <i class="fa-solid fa-bus-simple"></i>
+
+            <h3>
+                No buses found
+            </h3>
+
+            <p>
+                Try changing your filters or search route.
+            </p>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+
+                <i class="fa-solid fa-bus"></i>
+
+                BusYatra
+
+            </div>
+
+
+            <p>
+
+                Your trusted platform for easy,
+                safe and comfortable bus booking.
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#">
+                About Us
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Support
+            </h3>
+
+            <a href="#">
+                Help Center
+            </a>
+
+            <a href="#">
+                Cancellation
+            </a>
+
+            <a href="#">
+                Refund Policy
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Follow Us
+            </h3>
+
+            <div class="social-icons">
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 BusYatra. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script src="bus-search.js"></script>
+
+</body>
+
+</html>
+

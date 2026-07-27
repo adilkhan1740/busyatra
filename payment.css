@@ -1,0 +1,800 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #1d2939;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    min-height: 75px;
+    padding: 15px 7%;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo i {
+    color: #e63946;
+}
+
+.logo span span {
+    color: #e63946;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #475467;
+    font-weight: 600;
+}
+
+.nav-menu a:hover {
+    color: #e63946;
+}
+
+.login-btn {
+    padding: 11px 20px;
+
+    border: 1px solid #e63946;
+    border-radius: 8px;
+
+    background: white;
+    color: #e63946;
+
+    cursor: pointer;
+}
+
+
+/* ================= HEADER ================= */
+
+.page-header {
+    padding: 45px 7%;
+
+    background: #fff0f1;
+}
+
+.page-header span {
+    color: #e63946;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.page-header h1 {
+    font-size: 35px;
+
+    margin: 10px 0;
+}
+
+.page-header p {
+    color: #667085;
+}
+
+
+/* ================= MAIN ================= */
+
+.payment-page {
+    max-width: 1200px;
+
+    margin: 35px auto 70px;
+
+    padding: 0 20px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 350px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* ================= PAYMENT SECTION ================= */
+
+.payment-section {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.payment-heading {
+    margin-bottom: 25px;
+}
+
+.payment-heading h2 {
+    margin-bottom: 7px;
+}
+
+.payment-heading p {
+    color: #667085;
+
+    font-size: 14px;
+}
+
+
+/* ================= METHODS ================= */
+
+.payment-methods {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.payment-method {
+    padding: 15px 10px;
+
+    border: 1px solid #eaecf0;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #667085;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: .2s;
+}
+
+.payment-method i {
+    font-size: 20px;
+}
+
+.payment-method:hover,
+.payment-method.active {
+    border-color: #e63946;
+
+    color: #e63946;
+
+    background: #fff5f5;
+}
+
+
+/* ================= PAYMENT FORM ================= */
+
+.payment-form {
+    display: none;
+}
+
+.payment-form.active-form {
+    display: block;
+}
+
+.payment-form h3 {
+    margin-bottom: 7px;
+}
+
+.payment-form > p {
+    color: #667085;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ================= INPUT ================= */
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.input-box {
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.input-box:focus-within {
+    border-color: #e63946;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(230,57,70,.1);
+}
+
+.input-box i {
+    color: #98a2b3;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+}
+
+.two-column {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* ================= UPI ================= */
+
+.upi-apps {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.upi-apps button {
+    padding: 12px 15px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+}
+
+.upi-apps button:hover {
+    border-color: #e63946;
+
+    color: #e63946;
+}
+
+
+/* ================= WALLET ================= */
+
+.wallet-options {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.wallet-options label {
+    padding: 15px;
+
+    border: 1px solid #eaecf0;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.wallet-options label:hover {
+    border-color: #e63946;
+}
+
+.wallet-options input {
+    accent-color: #e63946;
+
+    margin-right: 10px;
+}
+
+
+/* ================= COUPON ================= */
+
+.coupon-section {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #eaecf0;
+}
+
+.coupon-section h3 {
+    margin-bottom: 15px;
+}
+
+.coupon-box {
+    display: flex;
+
+    gap: 10px;
+}
+
+.coupon-box input {
+    flex: 1;
+
+    height: 45px;
+
+    padding: 0 15px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.coupon-box input:focus {
+    border-color: #e63946;
+}
+
+.coupon-box button {
+    padding: 0 22px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #101828;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.coupon-message {
+    margin-top: 10px;
+
+    font-size: 13px;
+}
+
+.coupon-hint {
+    margin-top: 12px;
+
+    color: #667085;
+
+    font-size: 12px;
+}
+
+
+/* ================= SECURE ================= */
+
+.secure-payment {
+    margin-top: 30px;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    background: #ecfdf3;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.secure-payment > i {
+    color: #16803c;
+
+    font-size: 20px;
+}
+
+.secure-payment strong {
+    color: #16803c;
+
+    font-size: 14px;
+}
+
+.secure-payment p {
+    color: #667085;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* ================= ORDER SUMMARY ================= */
+
+.order-summary {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+
+    position: sticky;
+
+    top: 100px;
+}
+
+.order-summary > h2 {
+    margin-bottom: 25px;
+}
+
+
+/* ================= BUS ================= */
+
+.bus-summary {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #eaecf0;
+}
+
+.bus-icon {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 10px;
+
+    background: #ffe1e4;
+
+    color: #e63946;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.bus-summary h3 {
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+.bus-summary p {
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+/* ================= ROUTE ================= */
+
+.route-summary {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #eaecf0;
+}
+
+.route-summary div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.route-summary span {
+    color: #98a2b3;
+
+    font-size: 12px;
+}
+
+.route-summary i {
+    color: #e63946;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eaecf0;
+}
+
+.summary-item span {
+    color: #667085;
+}
+
+.summary-item strong {
+    text-align: right;
+}
+
+
+/* ================= FARE ================= */
+
+.fare-breakdown {
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eaecf0;
+}
+
+.fare-breakdown div {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 10px 0;
+}
+
+.fare-breakdown span {
+    color: #667085;
+}
+
+.discount-row {
+    color: #16803c;
+}
+
+.discount-row span,
+.discount-row strong {
+    color: #16803c;
+}
+
+
+/* ================= TOTAL ================= */
+
+.total-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 22px 0;
+
+    font-size: 19px;
+}
+
+.total-row strong {
+    color: #e63946;
+}
+
+
+/* ================= PAY BUTTON ================= */
+
+.pay-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #e63946;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    transition: .3s;
+}
+
+.pay-btn:hover {
+    background: #c92f3b;
+}
+
+.payment-note {
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: #98a2b3;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    padding: 50px 7% 0;
+
+    background: #101828;
+
+    color: white;
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 40px;
+}
+
+.footer-container > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer-logo {
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+.footer-logo i {
+    color: #e63946;
+}
+
+.footer-about p {
+    max-width: 350px;
+
+    color: #98a2b3;
+
+    line-height: 1.6;
+}
+
+.footer-container a {
+    color: #98a2b3;
+}
+
+.footer-container a:hover {
+    color: #e63946;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+
+    padding: 20px;
+
+    border-top: 1px solid #344054;
+
+    text-align: center;
+
+    color: #98a2b3;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 900px) {
+
+    .payment-page {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+    }
+
+}
+
+
+@media(max-width: 650px) {
+
+    .nav-menu {
+        display: none;
+    }
+
+    .page-header {
+        padding: 35px 5%;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .payment-section {
+        padding: 20px 15px;
+    }
+
+    .payment-methods {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+}
